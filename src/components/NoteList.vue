@@ -16,7 +16,8 @@ export default {
             note: {
                 title: '',
                 textInput: '',
-                date: Date()
+                date: Date(),
+                id: ''
             },
             notes: []
         }
@@ -26,6 +27,7 @@ export default {
             this.note.title = title;
             this.note.textInput = text;
             this.note.date = new Date(Date.now()).toLocaleDateString();
+            this.note.id = new Date(Date.now()).getTime();
             this.notes.push(this.note);
             console.log(this.notes);
         })
@@ -33,11 +35,14 @@ export default {
     components:{
         appNote: Note
     },
-    methods:{
-        removeNote(index){
-            this.notes.splice(index, 1);
-        }
-    }
+    // methods:{
+    //     removeNote(index){
+    //         noteBus.$on('removeNote',(index) => {
+    //             console.log(index);
+    //         })
+    //         this.notes.splice(this.note.index, 1);
+    //     }
+    // }
 }
 </script>
 
